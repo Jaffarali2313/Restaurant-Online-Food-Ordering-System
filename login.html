@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>php login system</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+#frm{
+    border: solid gray 35px;
+    width: 300px;
+    border-radius: 5px;
+    background:gold;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#frm label{
+    display:block;
+    margin-bottom: 10px;
+}
+#frm input{
+    width: 100px;
+    padding: 8px;
+    margin-bottom: 15 px;
+    box-sizing: border-box;
+}
+#btn{
+    color: greenyellow;
+    background: #337ab7;
+    padding: 10px;
+    width: 100%;
+    border:none;
+    border-radius: 3px;
+    cursor:pointer;
+
+}
+    </style>
+    </head>
+    <body>
+        <div id="frm">
+            <h1>login</h1>
+            <form name="f1"action="login.php"method="POST">
+                <label><b>UserName: </b></label>
+                <input type="text"id="user"name="user"placeholder="Enter username" required/><br>
+                <label><b>Password: </b></label>
+                <input type="password"id="pass"name="pass"placeholder="Enter complex password" required/><br><br><br>
+                <input type="submit"id="btn"value="login"/>
+            </form>
+        </div>
+    </body>
+</html>

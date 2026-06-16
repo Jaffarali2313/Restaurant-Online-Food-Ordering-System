@@ -1,0 +1,99 @@
+<DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="Jaffar ali">
+    <meta name="description" content="order page of beriyani">
+    <title>Order</title>
+    <style>
+        * {
+            background-color: gold;
+            font-family: Arial, sans-serif;
+        }
+
+        #totalPrice {
+            font-size: larger;
+        }
+    </style>
+     <script>
+        function calculateTotal() {
+
+    var chickenQty = parseInt(document.getElementById('chicken').value) || 0;
+    var hydrabadiQty = parseInt(document.getElementById('hydrabadi').value) || 0;
+    var muttonQty = parseInt(document.getElementById('mutton').value) || 0;
+    var prawnQty = parseInt(document.getElementById('prawn').value) || 0;
+    var thanduriQty = parseInt(document.getElementById('thanduri').value) || 0;
+    var sekababQty = parseInt(document.getElementById('sekabab').value) || 0;
+    var kolambuQty = parseInt(document.getElementById('kolambu').value) || 0;
+    var fryQty = parseInt(document.getElementById('fry').value) || 0;
+
+    var totalPrice =
+        (chickenQty * 200) +
+        (hydrabadiQty * 300) +
+        (muttonQty * 700) +
+        (prawnQty * 500) +
+        (thanduriQty * 500) +
+        (sekababQty * 20) +
+        (kolambuQty * 250) +
+        (fryQty * 100);
+
+    document.getElementById('totalPrice').innerText = "Rs: " + totalPrice;
+    document.getElementById('total').value=totalPrice;
+   }
+</script>
+</head>
+
+<body>
+    <h2><b>
+            <center>Order Food Using Form</center>
+    </h2></b>
+    <center>
+        <form method="POST" action="order.php">
+            <b><label for="date">Date:</label></b>
+            <input type="date" id="date" name="date" placeholder="Date" required><br><br>
+            <b><label for="name">Name:</label></b>
+            <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+            <b><label for="phone">Phone Number:</label></b>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required><br><br>
+            <b><label for="add">Enter current Address:</label></b><br>
+            <textarea name="add" rows="4" cols="50"></textarea><br><br>
+            <b>CITY:</b><select name="cty">
+            <option value="Hosur">Hosur</option>
+            </select><br><br>
+            <b><label for="chicken">Chicken beriyani(Rs:200)</label></b>
+            <input type="number" id="chicken" name="chicken" value="0" min="0"><br><br>
+
+            <b><label for="hydrabadi">Hydrabadi chicken vadi beriyani (Rs:300)</label></b>
+            <input type="number" id="hydrabadi" name="hydrabadi" value="0" min="0"><br><br>
+
+            <b><label for="mutton">Mutton beriyani (Rs:700)</label></b>
+            <input type="number" id="mutton" name="mutton" value="0" min="0"><br><br>
+
+            <b><label for="prawn">Prawn beriyani (Rs:500)</label></b>
+            <input type="number" id="prawn" name="prawn" value="0" min="0"><br><br>
+
+            <b><label for="thanduri">Full thandoori chicken (Rs:500)</label></b>
+            <input type="number" id="thanduri" name="thanduri" value="0" min="0"><br><br>
+
+            <b><label for="sekabab">Beef Sekabab (Rs:20 each)</label></b>
+            <input type="number" id="sekabab" name="sekabab" value="0" min="0"><br><br>
+
+            <b><label for="kolambu">Fish kolambu (Rs:250)</label></b>
+            <input type="number" id="kolambu" name="kolambu" value="0" min="0"><br><br>
+
+            <b><label for="fry">Vanjiram fry (Rs:100 each)</label></b>
+            <input type="number" id="fry" name="fry" value="0" min="0"><br><br>
+
+            <b><label for="total">Total price</label></b><br><br>
+            <span id="totalPrice">Rs:0.00</span>
+            <input type="hidden" id="total" name="total"><br><br>
+            <button type="button" onclick="calculateTotal()">Bill Total Rs:</button><br><br>
+            <input type="checkbox" id="check" name="check" required>
+            <label for="check"><b>Online Food Delivery Placed only in Hosur City</b></label><br><br>
+            <button type="submit" onclick="calculateTotal()">Continue</button>
+        </form>
+    </center>
+</body>
+</html>
